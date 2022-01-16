@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;800&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Karla", sans-serif;
+  background: #e5e5e5;
+}
+.app {
+  width: 50%;
+  max-width: 550px;
+  margin: 100px auto;
+  background: #fff;
+}
+/* header style start */
+.header {
+  height: 65px;
+  background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 20.7482px;
+  line-height: 24px;
+  letter-spacing: -0.1em;
+  font-weight: bold;
+  color: #ffffff;
+}
+.logo img {
+  width: 45px;
+}
+.tag {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffffff;
+}
+/* header style end */
+/* main style start */
+.main {
+  padding: 20px;
+}
+.main--form__input {
+  display: flex;
+  justify-content: space-between;
+}
+.main--form__input input {
+  border: 1px solid #d5d4d8;
+  border-radius: 5px;
+  height: 35px;
+  padding-left: 10px;
+  width: 45%;
+}
+.main--form__button {
+  border: none;
+  background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
+  border-radius: 5px;
+  height: 40px;
+  width: 100%;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: -0.1em;
+  color: #ffffff;
+  cursor: pointer;
+}
+.main--img {
+  margin-top: 30px;
+  padding: 20px;
+  width: 100%;
+  border-radius: 2px;
+  height: 268px;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.main--img p {
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 39px;
+  text-align: center;
+  color: #ffffff;
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
+}
+/* main style ens */
+/* footer style start */
+.footer {
+  text-align: center;
+}
+.footer a {
+  color: #a626d3;
+}
+/* footer style end */
