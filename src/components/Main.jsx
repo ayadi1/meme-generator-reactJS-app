@@ -1,13 +1,23 @@
 import { useState } from "react";
-import Background from "../assets/images/memeimg.png";
+import bg from "../assets/images/memeimg.png";
+import memesData from "../memesData";
 export default function Main() {
   const [textOne, setTextOne] = useState("");
   const [textTwo, setTextTwo] = useState("");
   const [finalTextOne, setFinalTextOne] = useState("");
   const [finalTextTwo, FinalTextTwo] = useState("");
+  const [Background, setBackground] = useState(bg);
+  const generatMemes = () => {
+    const number = Math.floor(
+      Math.random() * (memesData.data.memes.length - 1)
+    );
+    return memesData.data.memes[number].url;
+  };
   const updateMemes = () => {
     setFinalTextOne(textOne);
     FinalTextTwo(textTwo);
+    const newBg = generatMemes();
+    setBackground(newBg);
   };
   const handleChangeTextOne = (e) => {
     setTextOne(e.target.value);
