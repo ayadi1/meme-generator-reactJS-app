@@ -80,11 +80,12 @@ body {
   width: 100%;
   border-radius: 2px;
   height: 268px;
-  background-size: cover;
+  background-size: contain;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-repeat: no-repeat;
 }
 .main--img p {
   font-weight: 900;

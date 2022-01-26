@@ -1,30 +1,37 @@
-import { useState } from "react";
-import bg from "../assets/images/memeimg.png";
+import { useState , useEffect } from "react";
 import memesData from "../memesData";
 export default function Main() {
-  const [textOne, setTextOne] = useState("");
-  const [textTwo, setTextTwo] = useState("");
-  const [finalTextOne, setFinalTextOne] = useState("");
-  const [finalTextTwo, FinalTextTwo] = useState("");
-  const [Background, setBackground] = useState(bg);
+  const [inputData, setInputData] = useState({
+    textOne: "",
+    textTwo: "",
+  });
+
+  const [Background, setBackground] = useState("");
+  const [imgWidth, setImgWidth] = useState(550);
+  const [imgHeight, setImgHeight] = useState("auto");
   const generatMemes = () => {
     const number = Math.floor(
       Math.random() * (memesData.data.memes.length - 1)
     );
-    return memesData.data.memes[number].url;
+    return memesData.data.memes[number];
   };
   const updateMemes = () => {
-    setFinalTextOne(textOne);
-    FinalTextTwo(textTwo);
-    const newBg = generatMemes();
-    setBackground(newBg);
+    setBackground(generatMemes().url);
+    setImgWidth(generatMemes().width);
+    setImgHeight(generatMemes().height);
   };
-  const handleChangeTextOne = (e) => {
-    setTextOne(e.target.value);
+  const handleChange = (e) => {
+    setInputData((oldFormData) => {
+      return {
+        ...oldFormData,
+        [e.target.name]: e.target.value,
+      };
+    });
+    console.log(inputData);
   };
-  const handleChangeTextTwo = (e) => {
-    setTextTwo(e.target.value);
-  };
+  useEffect(()=>{
+    updateMemes()
+  },[])
   return (
     <main className="main">
       <div className="main--form">
@@ -32,23 +39,28 @@ export default function Main() {
           <input
             type="text"
             placeholder="add text"
-            value={textOne}
-            onChange={handleChangeTextOne}
+            value={inputData.textOne}
+            onChange={handleChange}
+            name="textOne"
           />
           <input
             type="text"
             placeholder="add text"
-            value={textTwo}
-            onChange={handleChangeTextTwo}
+            value={inputData.textTwo}
+            onChange={handleChange}
+            name="textTwo"
           />
         </div>
         <button className="main--form__button" onClick={updateMemes}>
           Get a new meme image 🖼
         </button>
       </div>
-      <div className="main--img" style={{ background: `url(${Background})` }}>
-        <p className="main--img__text__one">{finalTextOne}</p>
-        <p className="main--img__text__two">{finalTextTwo}</p>
+      <div
+        className="main--img"
+        style={{ backgroundImage: `url(${Background})` }}
+      >
+        <p className="main--img__text__one">{inputData.textOne}</p>
+        <p className="main--img__text__two">{inputData.textTwo}</p>
       </div>
     </main>
   );
